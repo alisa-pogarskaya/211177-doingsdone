@@ -6,14 +6,15 @@ $show_complete_tasks = rand(0, 1);
 date_default_timezone_set('Europe/Moscow');
 
 $days = rand(-3, 3);
-$task_deadline_ts = strtotime("+" . $days . " day midnight"); // метка времени даты выполнения задачи
-$current_ts = strtotime('now midnight'); // текущая метка времени
+$task_deadline_ts = strtotime("+" . $days . "01.09.2017"); // метка времени даты выполнения задачи   day midnight
+$current_ts = strtotime('31.08.2017'); // текущая метка времени   now midnight
 
 // запишите сюда дату выполнения задачи в формате дд.мм.гггг
-$date_deadline = null;
+$date_deadline = strtotime("31.08.2017");
 
 // в эту переменную запишите кол-во дней до даты задачи
-$days_until_deadline = null;
+$days_until_deadline = 1;
+
 ?>
 
 <!DOCTYPE html>
@@ -165,6 +166,10 @@ $days_until_deadline = null;
 
                         <td class="task__date">
                             <!--выведите здесь дату выполнения задачи-->
+                            <?php 
+                              echo $date_deadline;
+                              echo $days_until_deadline;
+                            ?>
                         </td>
 
                         <td class="task__controls">
