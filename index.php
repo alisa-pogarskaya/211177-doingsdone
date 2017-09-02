@@ -6,14 +6,15 @@ $show_complete_tasks = rand(0, 1);
 date_default_timezone_set('Europe/Moscow');
 
 $days = rand(-3, 3);
-$task_deadline_ts = strtotime("+" . $days . "01.09.2017"); // метка времени даты выполнения задачи   day midnight
-$current_ts = strtotime('31.08.2017'); // текущая метка времени   now midnight
+
+$task_deadline_ts = strtotime("+" . $days . " day midnight"); // метка времени даты выполнения задачи
+$current_ts = strtotime('now midnight'); // текущая метка времени
 
 // запишите сюда дату выполнения задачи в формате дд.мм.гггг
-$date_deadline = strtotime("31.08.2017");
+$date_deadline = date("d.m.Y", $task_deadline_ts);
 
 // в эту переменную запишите кол-во дней до даты задачи
-$days_until_deadline = 1;
+$days_until_deadline = ($task_deadline_ts - $current_ts)/86400;
 
 ?>
 
@@ -28,7 +29,7 @@ $days_until_deadline = 1;
 </head>
 
 <body><!--class="overlay"-->
-<h1 class="visually-hidden">Дела в порядке</h1>
+<h1 class="visually-hidden">Дела в порядке</h1> 
 
 <div class="page-wrapper">
     <div class="container container--with-sidebar">
@@ -156,7 +157,11 @@ $days_until_deadline = 1;
                           } else {} 
                     ?>
 
-                    <tr class="tasks__item task">
+                    <tr class="tasks__item task <?php
+                          if ($days_until_deadline <= 0) {
+                              print(" task--important");
+                          } else {} 
+                           ?>">
                         <td class="task__select">
                             <label class="checkbox task__checkbox">
                                 <input class="checkbox__input visually-hidden" type="checkbox">
@@ -167,8 +172,7 @@ $days_until_deadline = 1;
                         <td class="task__date">
                             <!--выведите здесь дату выполнения задачи-->
                             <?php 
-                              echo $date_deadline;
-                              echo $days_until_deadline;
+                              echo $date_deadline . "<br/>" . $days_until_deadline;
                             ?>
                         </td>
 
