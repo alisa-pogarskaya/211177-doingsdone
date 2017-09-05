@@ -131,9 +131,8 @@ $days_until_deadline = ($task_deadline_ts - $current_ts)/SECONDS_IN_DAY;
                 <table class="tasks">
 
                     <!--показывать следующий тег <tr/>, если переменная равна единице-->
-                    <?php
-                          if ($show_complete_tasks == 1) {
-                              print ('<tr class="tasks__item task task--completed">
+                    <?php if ($show_complete_tasks == 1): ?>
+                              <tr class="tasks__item task task--completed">
                                         <td class="task__select">
                                             <label class="checkbox task__checkbox">
                                                 <input class="checkbox__input visually-hidden" type="checkbox" checked>
@@ -144,9 +143,8 @@ $days_until_deadline = ($task_deadline_ts - $current_ts)/SECONDS_IN_DAY;
 
                                         <td class="task__controls">
                                         </td>
-                                     </tr>'
-                                     ); 
-					?>
+                                     </tr> 
+                    <?php endif; ?>
                     
                     <tr class="tasks__item task <?php if ($days_until_deadline <= 0): ?> task--important <?php endif; ?>">
                         <td class="task__select">
