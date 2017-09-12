@@ -56,6 +56,22 @@ $tasks = array(
         "category" => "Домашние дела",
         "fulfilled" => "Нет",
     ));
+
+// Задание с функцией
+
+function tasks_in_projects_number($tasks_in_projects, $tasks) {
+    $index = 0;
+    $num = count($tasks);
+    while ($index < $num);
+    $cat = $tasks[$index];
+    $index ++;
+    if ($tasks_in_projects == "Все") {
+        return $cat;
+    }
+    else {
+        return $tasks_in_projects = 0;
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -103,7 +119,7 @@ $tasks = array(
                         <?php foreach ($tasks_in_projects as $key => $val): ?>
                             <li class="main-navigation__list-item main-navigation__<?php if ($val == "Все"): ?>list-item--active<?php endif; ?>">
                                 <a class="main-navigation__list-item-link" href="#"><?= $val; ?></a>
-                                <span class="main-navigation__list-item-count">24</span>
+                                <span class="main-navigation__list-item-count"><?= print tasks_in_projects_number() ?></span>
                             </li>
                         <?php endforeach; ?>
                     </ul>
