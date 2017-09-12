@@ -155,7 +155,7 @@ $tasks = array(
                 <table class="tasks">
                     <!--показывать следующий тег <tr/>, если переменная равна единице-->
                     <?php foreach ($tasks as $key => $val): ?>
-                        <tr class="tasks__item">
+                        <tr class="tasks__item<?php if ($val['fulfilled'] == "Да"): ?> task--completed<?php endif; ?>">
                             <td class="task__select">
                                 <label class="checkbox task__checkbox">
                                     <input class="checkbox__input visually-hidden" type="checkbox" <?= $val['fulfilled'] ?> <?php if ($val['fulfilled'] == "Да"): ?> checked <?php endif; ?>>
