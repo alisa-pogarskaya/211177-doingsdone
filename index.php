@@ -61,15 +61,14 @@ $tasks = array(
 
 function countTasksByCategory($category, $tasks) {
     $num = 0;
-    foreach ( $tasks as $task );
-    while ($task['category'] == $category) {
+    foreach ( $tasks as $task )
+    if ($task['category'] == $category) {
         $num++;
     }
-    // $num = count($tasks);
-    // while ($index < $num);
-    // $cat = $tasks[$index];
-    // $index ++;
-    return ;
+    if ($category == "Все") {
+        $num++;
+    }
+    return $num;
 }
 ?>
 <!DOCTYPE html>
