@@ -1,8 +1,9 @@
 <?php
 
     require_once 'functions.php';
+    $data = array();
     $data['content'] = renderTemplate( 'templates/main.php', $data );
-    renderTemplate( 'templates/layout.php', $data['content'] );
+    renderTemplate( 'templates/layout.php', $data );
     // показывать или нет выполненные задачи
     $show_complete_tasks = rand(0, 1);
 
