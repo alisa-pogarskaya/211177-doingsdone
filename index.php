@@ -59,5 +59,5 @@
             "fulfilled" => "Нет",
         ));
 
-    $content = renderTemplate( '/templates/main.php', array('show_complete_tasks' => $show_complete_tasks, 'tasks' => $tasks) );
-    echo renderTemplate( '/templates/layout.php', array('title' => 'Дела в порядке', 'categories' => $categories, 'tasks' => $tasks, 'content' => $content));
+    $content = renderTemplate( 'templates/main.php', array('show_complete_tasks' => $show_complete_tasks, 'tasks' => $tasks) );
+    echo renderTemplate( 'templates/layout.php', array('title' => 'Дела в порядке', 'categories' => $categories, 'tasks' => $tasks, 'content' => $content));

@@ -1,6 +1,5 @@
 <?php
     function renderTemplate($path, $data) {
-        $path = $_SERVER['DOCUMENT_ROOT'] . $path;
         if (!file_exists( $path )) {
             return '';
         }
