@@ -1,9 +1,6 @@
 <?php
 
     require_once 'functions.php';
-    $data = array();
-    $data['content'] = renderTemplate( 'templates/main.php', $data );
-    renderTemplate( 'templates/layout.php', $data );
     // показывать или нет выполненные задачи
     $show_complete_tasks = rand(0, 1);
 
@@ -61,4 +58,6 @@
             "category" => "Домашние дела",
             "fulfilled" => "Нет",
         ));
-?>
+
+    $content = renderTemplate( '/templates/main.php', array('show_complete_tasks' => $show_complete_tasks, 'tasks' => $tasks) );
+    echo renderTemplate( '/templates/layout.php', array('title' => 'Дела в порядке', 'categories' => $categories, 'tasks' => $tasks, 'content' => $content));

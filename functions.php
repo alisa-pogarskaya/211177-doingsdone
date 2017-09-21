@@ -4,7 +4,7 @@
         if (!file_exists( $path )) {
             return '';
         }
-        ob_start;
+        ob_start ();
         extract( $data ); //далее у меня доступна переменная $content;
         require $path; //$content также доступен внутри $path - файла шаблона
         return ob_get_clean(); //вернули строчку с шаблоном
