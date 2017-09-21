@@ -1,7 +1,8 @@
 <?php
     function renderTemplate($path, $data) {
-        if ($_SERVER['DOCUMENT_ROOT'] == $path) {
-            $path = null;
+        $path = $_SERVER['DOCUMENT_ROOT'] . $path;
+        if (!file_exists( $path )) {
+            return '';
         }
         ob_start;
         extract( $data ); //далее у меня доступна переменная $content;
