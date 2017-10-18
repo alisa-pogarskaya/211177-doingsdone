@@ -1,4 +1,20 @@
 <?php
+header("HTTP/1.0 404 Not Found");
+$_GET = array(
+    'all' => $categories[0],
+    'incoming' => $categories[1],
+    'studies' => $categories[2],
+    'job' => $categories[3],
+    'housework' => $categories[4],
+    'auto' => $categories[5]
+    );
+
+if (isset($_GET['all'])) {
+    $categories[0];
+}
+else {
+    $http_response_code(404);
+}
 
     require_once 'functions.php';
     // показывать или нет выполненные задачи
@@ -25,37 +41,37 @@
         array(
             "title" => "Собеседование в IT компании",
             "date" => "01.06.2018",
-            "category" => "Работа",
+            "category" => $categories[3],
             "fulfilled" => "Нет",
         ),
         array(
             "title" => "Выполнить тестовое задание",
             "date" => "25.05.2018",
-            "category" => "Работа",
+            "category" => $categories[3],
             "fulfilled" => "Нет",
         ),
         array(
             "title" => "Сделать задание первого раздела",
             "date" => "21.04.2018",
-            "category" => "Учеба",
+            "category" => $categories[2],
             "fulfilled" => "Да",
         ),
         array(
             "title" => "Встреча с другом",
             "date" => "22.04.2018",
-            "category" => "Входящие",
+            "category" => $categories[1],
             "fulfilled" => "Нет",
         ),
         array(
             "title" => "Купить корм для кота",
             "date" => "Нет",
-            "category" => "Домашние дела",
+            "category" => $categories[4],
             "fulfilled" => "Нет",
         ),
         array(
             "title" => "Заказать пиццу",
             "date" => "Нет",
-            "category" => "Домашние дела",
+            "category" => $categories[4],
             "fulfilled" => "Нет",
         ));
 
