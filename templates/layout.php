@@ -42,8 +42,8 @@
                 <nav class="main-navigation">
                     <ul class="main-navigation__list">
                         <?php foreach ($categories as $key => $category): ?>
-                            <li class="main-navigation__list-item main-navigation__<?php if ($category == "Все"): ?>list-item--active<?php endif; ?>">
-                                <a class="main-navigation__list-item-link" href="#"><?= $category; ?></a>
+                            <li class="main-navigation__list-item main-navigation__<?php if ($key == $categoryKey): ?>list-item--active<?php endif; ?>">
+                                <a class="main-navigation__list-item-link" href="/?category=<?= $key ?>"><?= $category; ?></a>
                                 <span class="main-navigation__list-item-count"><?= countTasksByCategory($key, $tasks) ?></span>
                             </li>
                         <?php endforeach; ?>
