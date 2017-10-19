@@ -48,7 +48,7 @@
                                     <span class="checkbox__text"><?= $task['title'] ?></span>
                                 </label>
                             </td>
-                            <td class="task__date"><?= $task['category'] ?></td>
+                            <td class="task__date"><?= $categories[$task['category']] ?></td>
                             <td class="task__date"><?= $task['date'] ?></td>
 
                             <td class="task__controls">

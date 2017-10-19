@@ -9,13 +9,13 @@
         return ob_get_clean(); //вернули строчку с шаблоном
     }
 
-    function countTasksByCategory($category, $tasks) {
+    function countTasksByCategory($categoryKey, $tasks) {
         $num = 0;
         foreach ( $tasks as $task )
-            if ($task['category'] == $category) {
+            if ($task['category'] == $categoryKey) {
                 $num++;
             }
-        if ($category == "Все") {
+        if ($categoryKey == 0) {
             $num++;
         }
         return $num;

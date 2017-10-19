@@ -44,7 +44,7 @@
                         <?php foreach ($categories as $key => $category): ?>
                             <li class="main-navigation__list-item main-navigation__<?php if ($category == "Все"): ?>list-item--active<?php endif; ?>">
                                 <a class="main-navigation__list-item-link" href="#"><?= $category; ?></a>
-                                <span class="main-navigation__list-item-count"><?= countTasksByCategory($category, $tasks) ?></span>
+                                <span class="main-navigation__list-item-count"><?= countTasksByCategory($key, $tasks) ?></span>
                             </li>
                         <?php endforeach; ?>
                     </ul>

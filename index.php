@@ -1,20 +1,4 @@
 <?php
-header("HTTP/1.0 404 Not Found");
-$_GET = array(
-    'all' => $categories[0],
-    'incoming' => $categories[1],
-    'studies' => $categories[2],
-    'job' => $categories[3],
-    'housework' => $categories[4],
-    'auto' => $categories[5]
-    );
-
-if (isset($_GET['all'])) {
-    $categories[0];
-}
-else {
-    $http_response_code(404);
-}
 
     require_once 'functions.php';
     // показывать или нет выполненные задачи
@@ -35,45 +19,52 @@ else {
 
     // Задание с массивами
 
-    $categories = ["Все", "Входящие", "Учеба", "Работа", "Домашние дела", "Авто"];
+    $categories = [
+        0 =>"Все",
+        1 => "Входящие",
+        2 => "Учеба",
+        3 => "Работа",
+        4 => "Домашние дела",
+        5 => "Авто"
+    ];
 
     $tasks = array(
         array(
             "title" => "Собеседование в IT компании",
             "date" => "01.06.2018",
-            "category" => $categories[3],
+            "category" => 3,
             "fulfilled" => "Нет",
         ),
         array(
             "title" => "Выполнить тестовое задание",
             "date" => "25.05.2018",
-            "category" => $categories[3],
+            "category" => 3,
             "fulfilled" => "Нет",
         ),
         array(
             "title" => "Сделать задание первого раздела",
             "date" => "21.04.2018",
-            "category" => $categories[2],
+            "category" => 2,
             "fulfilled" => "Да",
         ),
         array(
             "title" => "Встреча с другом",
             "date" => "22.04.2018",
-            "category" => $categories[1],
+            "category" => 1,
             "fulfilled" => "Нет",
         ),
         array(
             "title" => "Купить корм для кота",
             "date" => "Нет",
-            "category" => $categories[4],
+            "category" => 4,
             "fulfilled" => "Нет",
         ),
         array(
             "title" => "Заказать пиццу",
             "date" => "Нет",
-            "category" => $categories[4],
+            "category" => 4,
             "fulfilled" => "Нет",
         ));
 
-    $content = renderTemplate( 'templates/main.php', array('show_complete_tasks' => $show_complete_tasks, 'tasks' => $tasks) );
+    $content = renderTemplate( 'templates/main.php', array('show_complete_tasks' => $show_complete_tasks, 'tasks' => $tasks, 'categories' => $categories) );
     echo renderTemplate( 'templates/layout.php', array('title' => 'Дела в порядке', 'categories' => $categories, 'tasks' => $tasks, 'content' => $content));
